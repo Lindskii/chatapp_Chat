@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/chat.css">
+    <link rel="stylesheet" href="assets/css/accessibility.css">
+    <script src="assets/js/accessibility.js"></script>
+</head>
+<body>
+    <div id="particles"></div>
+    <button class="contacts-btn" title="Kontakte verwalten" onclick="window.open('contacts.html', '_blank')">
+        <span style="font-size: 1.5em;">&#128100;</span>
+    </button>
+    <div class="app-container">
+        <div class="sidebar">
+            <header class="sidebar-header">
+                <h2>Chats</h2>
+            </header>
+            <ul class="chat-list" id="chat-list"></ul>
+        </div>
+        <div class="chat-container">
+            <header class="chat-header">
+                <h2 id="chat-title">Group Chat</h2>
+            </header>
+            <div class="chat-messages" id="chat-messages"></div>
+            <div class="chat-input">
+                <input type="text" id="message-input" placeholder="Type your message here...">
+                <button id="send-button">Send</button>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/chat.js"></script>
+    <script src="assets/js/particles.js"></script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+/* Accessibility Styles */
+body.high-contrast,
+body.high-contrast .contacts-container,
+body.high-contrast .contact-list li,
+body.high-contrast .search-results li,
+body.high-contrast .section-title,
+body.high-contrast .contact-search input,
+body.high-contrast .contact-search button {
+    background: #fff !important;
+    color: #000 !important;
+    border-color: #000 !important;
+    box-shadow: none !important;
+}
+body.high-contrast .add-btn,
+body.high-contrast .delete-btn {
+    background: #000 !important;
+    color: #fff !important;
+    border: 2px solid #000 !important;
+}
+body.high-contrast .nexon-overlay {
+    color: #000 !important;
+    opacity: 0.08 !important;
+}
+body.big-font,
+body.big-font .contacts-container,
+body.big-font .contact-list li,
+body.big-font .search-results li,
+body.big-font .section-title,
+body.big-font .contact-search input,
+body.big-font .contact-search button {
+    font-size: 1.25em !important;
+}
+body.read-mode,
+body.read-mode .contacts-container,
+body.read-mode .contact-list li,
+body.read-mode .search-results li,
+body.read-mode .section-title,
+body.read-mode .contact-search input,
+body.read-mode .contact-search button {
+    background: #f9f9f9 !important;
+    color: #222 !important;
+    letter-spacing: 0.04em !important;
+    line-height: 1.7 !important;
+}
+
+/* Accessibility Button & Menü */
+.a11y-btn {
+    position: fixed;
+    top: 24px;
+    right: 32px;
+    z-index: 2000;
+    background: #f9f9f9;
+    color: #0b0b0b;
+    border-radius: 50%;
+    border: none;
+    width: 48px;
+    height: 48px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    font-size: 1.5em;
+}
+.a11y-btn:hover, .a11y-btn:focus {
+    background: #ffffff;
+    outline: 2px solid #020202;
+}
+
+.a11y-menu {
+    display: none;
+    position: fixed;
+    top: 80px;
+    right: 32px;
+    z-index: 2100;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    padding: 18px 22px;
+    min-width: 200px;
+    font-size: 1em;
+    flex-direction: column;
+    gap: 10px;
+}
+.a11y-menu.open {
+    display: flex;
+}
+.a11y-menu label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #222;
+}
+.a11y-menu input[type="checkbox"] {
+    accent-color: #0d55a3;
+    width: 18px;
+    height: 18px;
+}
+
+/* High Contrast: Nur Text auf Schwarz/Weiß, keine Flächen weiß machen */
+body.high-contrast,
+body.high-contrast .chat-container,
+body.high-contrast .contacts-container,
+body.high-contrast .chat-input,
+body.high-contrast .chat-header,
+body.high-contrast .chat-messages,
+body.high-contrast .sidebar,
+body.high-contrast .chat-date,
+body.high-contrast .chat-item,
+body.high-contrast .contact-list li,
+body.high-contrast .search-results li {
+    background: #000 !important;
+    color: #fff !important;
+    border-color: #fff !important;
+    box-shadow: none !important;
+}
+body.high-contrast .add-btn,
+body.high-contrast .delete-btn,
+body.high-contrast .chat-input button,
+body.high-contrast .contact-search button {
+    background: #fff !important;
+    color: #000 !important;
+    border: 2px solid #fff !important;
+}
+body.high-contrast .nexon-overlay {
+    color: #fff !important;
+    opacity: 0.08 !important;
+}
+
+/* Große Schrift: Skaliert alles, aber mit max-width und padding für Felder */
+body.big-font,
+body.big-font .chat-container,
+body.big-font .contacts-container,
+body.big-font .chat-input,
+body.big-font .chat-header,
+body.big-font .chat-messages,
+body.big-font .sidebar,
+body.big-font .chat-date,
+body.big-font .chat-item,
+body.big-font .contact-list li,
+body.big-font .search-results li {
+    font-size: 1.18em !important;
+}
+body.big-font input,
+body.big-font button,
+body.big-font textarea {
+    font-size: 1.1em !important;
+    padding: 12px !important;
+    min-width: 0;
+    min-height: 0;
+    box-sizing: border-box;
+}
+
+body.big-font .message .text,
+body.big-font .message .user {
+    font-size: 1.2em !important;
+}
+body.big-font .message .timestamp,
+body.big-font .message .time {
+    font-size: 0.4em !important;
+}
+
+/* High Contrast: Hintergrund schwarz, Chatfeld/Blasen weiß, Text schwarz */
+body.high-contrast {
+    background: #000 !important;
+}
+
+body.high-contrast .app-container,
+body.high-contrast .chat-container,
+body.high-contrast .contacts-container,
+body.high-contrast .app-container *,
+body.high-contrast .chat-container *,
+body.high-contrast .contacts-container * {
+    animation: none !important;
+    transition: none !important;
+}
+
+body.high-contrast .app-container,
+body.high-contrast .chat-container,
+body.high-contrast .contacts-container,
+body.high-contrast .chat-input,
+body.high-contrast .chat-header,
+body.high-contrast .chat-messages,
+body.high-contrast .sidebar,
+body.high-contrast .chat-date,
+body.high-contrast .chat-item,
+body.high-contrast .contact-list li,
+body.high-contrast .search-results li {
+    background: #fff !important;
+    color: #000 !important;
+    border-color: #000 !important;
+    box-shadow: none !important;
+}
+
+body.high-contrast .message .text,
+body.high-contrast .message.own .text {
+    background: #ffffff !important;
+    color: #000 !important;
+    border: 2px solid #000 !important;
+}
+
+body.high-contrast .add-btn,
+body.high-contrast .delete-btn,
+body.high-contrast .chat-input button,
+body.high-contrast .contact-search button {
+    background: #fff !important;
+    color: #000 !important;
+    border: 2px solid #000 !important;
+}
+
+body.high-contrast .nexon-overlay {
+    display: none !important;
+}
+
+body.high-contrast .chat-input input,
+body.high-contrast .contact-search input {
+    border: 1px  #000 !important;
+    box-shadow: 0 0 0 2px #000 !important;
+    background: #fff !important;
+    color: #000 !important;
+}
+
+body.high-contrast .sidebar-header {
+    background: #fff !important;
+    color: #000 !important;
+}
+
+body.high-contrast .contact-list li,
+body.high-contrast .search-results li {
+    border: 2px solid #000 !important;
+    border-radius: 8px !important;
+    background: #fff !important;
+    color: #000 !important;
+}
+
+.message .time,
+.message .timestamp {
+    color: #000 !important; /* Hier die gewünschte Farbe eintragen */
+}

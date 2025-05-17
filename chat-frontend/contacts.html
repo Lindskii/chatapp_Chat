@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Kontakte verwalten</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/chat.css">
+    <link rel="stylesheet" href="assets/css/contacts.css">
+    <link rel="stylesheet" href="assets/css/accessibility.css">
+    <script src="assets/js/accessibility.js"></script>
+    
+
+</head>
+<body>
+    <button class="contacts-btn" title="Zurück zum Chat" onclick="window.location.href='group-chat.html'">&#8592;</button>
+    <div class="contacts-container">
+        <h2>Kontakte suchen & hinzufügen</h2>
+        <form class="contact-search" onsubmit="searchContacts(event)">
+            <input type="text" id="search-input" placeholder="Kontaktname suchen..." autocomplete="off">
+            <button type="submit" title="Suchen">&#128269;</button>
+        </form>
+        <div class="section-title">Suchergebnisse:</div>
+        <ul class="search-results" id="search-results"></ul>
+        <div class="section-title">Deine Kontakte:</div>
+        <ul class="contact-list" id="contact-list"></ul>
+    </div>
+    <script src="assets/js/contacts.js"></script>
+</body>
+</html>

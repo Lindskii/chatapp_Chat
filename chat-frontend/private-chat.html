@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Chat</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/chat.css">
+    <script src="accessibility.js"></script>
+</head>
+<body>
+    <div id="particles"></div>
+    <div class="nexon-contrast" style="display:none;">NEXON</div>
+    <div class="chat-container">
+        <header class="chat-header">
+            <h2>Chat with <span id="user-name">User Name</span></h2>
+        </header>
+        <div class="messages" id="messages">
+            <!-- Messages will be dynamically inserted here -->
+        </div>
+        <div class="chat-input">
+            <input type="text" id="message-input" placeholder="Type your message here...">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+
+    <script src="assets/js/chat.js"></script>
+    <script src="assets/js/particles.js"></script>
+</body>
+</html>
