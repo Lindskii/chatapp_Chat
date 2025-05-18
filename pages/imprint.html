@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXON - Impressum</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components/buttons.css">
+    <link rel="stylesheet" href="../css/components/accessibility.css">
+    <style>
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            color: #fff;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: rgba(0, 200, 255, 1);
+            text-shadow: 0 0 10px rgba(0, 200, 255, 0.5);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: rgba(0, 200, 255, 1);
+        }
+        
+        .content-box {
+            background-color: rgba(15, 15, 20, 0.85);
+            border-radius: 12px;
+            padding: 40px;
+            margin: 20px 0;
+            color: #fff;
+            box-shadow: 0 0 30px rgba(0, 200, 255, 0.2);
+            border: 1px solid rgba(0, 200, 255, 0.3);
+        }
+        
+        h1 {
+            color: rgba(0, 200, 255, 1);
+            margin-bottom: 20px;
+            font-size: 2rem;
+            text-align: center;
+        }
+        
+        h2 {
+            color: rgba(0, 200, 255, 0.9);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        footer {
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        .footer-links {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(0, 200, 255, 0.8);
+            text-decoration: none;
+            margin: 0 5px;
+        }
+        
+        .copyright {
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-text">NEXON</div>
+    <div class="clock" id="clock"></div>
+    <div id="particles"></div>
+    
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">NEXON</div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="chat.html">Chat</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+                <li><a href="about.html">Über uns</a></li>
+            </ul>
+        </nav>
+        
+        <div class="content-box">
+            <h1>Impressum</h1>
+            
+            <h2>Angaben gemäß § 5 TMG</h2>
+            <p>NEXON GmbH<br>
+            Claudius-Keller-Straße 7<br>
+            81669 München<br>
+            Deutschland</p>
+            
+            <h2>Kontakt</h2>
+            <p>Telefon: +49 123 456789<br>
+            E-Mail: info@nexon.com</p>
+            
+            <h2>Vertretungsberechtigte</h2>
+            <p>Geschäftsführer: Quirin Weber</p>
+            
+            <h2>Handelsregister</h2>
+            <p>Registergericht: Amtsgericht Musterstadt<br>
+            Registernummer: HRB 12345</p>
+            
+            <h2>Umsatzsteuer-ID</h2>
+            <p>Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:<br>
+            DE123456789</p>
+            
+            <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
+            <p>Quirin Weber<br>
+            NEXON GmbH<br>
+            Claudius-Keller-Straße 7<br>
+            81669 München</p>
+            
+            <h2>Streitschlichtung</h2>
+            <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+            
+            <h2>Haftung für Inhalte</h2>
+            <p>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+        </div>
+        
+        <footer>
+            <div class="footer-links">
+                <a href="privacy.html">Datenschutz</a> |
+                <a href="terms.html">Nutzungsbedingungen</a> |
+                <a href="imprint.html" class="active">Impressum</a>
+            </div>
+            <div class="copyright">&copy; 2023 NEXON. Alle Rechte vorbehalten.</div>
+        </footer>
+    </div>
+
+    <script src="../js/clock.js"></script>
+    <script src="../js/particles.js"></script>
+    <script src="../js/accessibility.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+@startuml Login Flow
+!theme cerulean
+
+actor Benutzer
+participant "Login Page" as Page
+participant "Validierung" as Valid
+participant "Clock.js" as Clock
+participant "Particles.js" as Part
+
+== Seiten-Initialisierung ==
+Benutzer -> Page: Seite aufrufen
+activate Page
+
+Page -> Clock: initClock()
+activate Clock
+Clock --> Page: Uhrzeit initialisiert
+deactivate Clock
+
+Page -> Part: initParticles()
+activate Part
+Part --> Page: Animation gestartet
+deactivate Part
+
+== Login Prozess ==
+Benutzer -> Page: Benutzername eingeben
+Benutzer -> Page: Passwort eingeben
+Benutzer -> Page: Login klicken
+
+Page -> Valid: validateCredentials()
+activate Valid
+
+alt Erfolgreicher Login
+    Valid --> Page: Validierung OK
+    Page --> Benutzer: Weiterleitung Dashboard
+else Fehlgeschlagen
+    Valid --> Page: Validierung fehlgeschlagen
+    Page --> Benutzer: Fehlermeldung anzeigen
+end
+deactivate Valid
+
+@enduml

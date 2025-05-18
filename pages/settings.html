@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXON Account-Einstellungen</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components/login.css">
+    <link rel="stylesheet" href="../css/components/buttons.css">
+    <link rel="stylesheet" href="../css/components/accessibility.css">
+    <style>
+        .settings-container {
+            max-width: 900px;
+            width: 90%;
+            margin: 30px auto;
+            padding: 25px;
+            background: rgba(0, 0, 20, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 200, 255, 0.3);
+            border: 1px solid rgba(0, 200, 255, 0.5);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            z-index: 10;
+            backdrop-filter: blur(5px);
+        }
+
+        .settings-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(0, 200, 255, 0.3);
+        }
+
+        .settings-header h1 {
+            font-size: 28px;
+            color: #03e9f4;
+            margin: 0;
+            text-shadow: 0 0 10px rgba(3, 233, 244, 0.3);
+        }
+
+        .settings-nav {
+            display: flex;
+            flex-wrap: wrap;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .settings-nav-item {
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 6px;
+            margin-right: 5px;
+            transition: all 0.3s ease;
+            font-size: 15px;
+        }
+
+        .settings-nav-item:hover {
+            background: rgba(3, 233, 244, 0.2);
+        }
+
+        .settings-nav-item.active {
+            background: rgba(3, 233, 244, 0.5);
+            color: white;
+        }
+
+        .settings-section {
+            display: none;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .settings-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .settings-section h2 {
+            color: #03e9f4;
+            margin-bottom: 20px;
+            font-size: 22px;
+            border-bottom: 1px solid rgba(3, 233, 244, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .input-row {
+            margin-bottom: 20px;
+        }
+
+        .input-row label {
+            display: block;
+            margin-bottom: 10px;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .input-row input,
+        .input-row select,
+        .input-row textarea {
+            width: 100%;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(3, 233, 244, 0.5);
+            border-radius: 6px;
+            color: white;
+            transition: all 0.3s ease;
+            font-size: 15px;
+        }
+
+        .input-row input:focus,
+        .input-row select:focus,
+        .input-row textarea:focus {
+            border-color: #03e9f4;
+            box-shadow: 0 0 10px rgba(3, 233, 244, 0.3);
+            outline: none;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .settings-btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            min-width: 120px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #03e9f4, #00a8e8);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 15px rgba(3, 233, 244, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #03e9f4;
+            border: 1px solid #03e9f4;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(3, 233, 244, 0.1);
+        }
+
+        .btn-danger {
+            background: rgba(220, 53, 69, 0.8);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: rgb(220, 53, 69);
+            box-shadow: 0 0 15px rgba(220, 53, 69, 0.5);
+        }
+
+        .info-box {
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .info-box.warning {
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 193, 7, 0.5);
+            color: #ffc107;
+        }
+
+        .info-box.danger {
+            background: rgba(220, 53, 69, 0.1);
+            border: 1px solid rgba(220, 53, 69, 0.5);
+            color: #ff6b6b;
+        }
+
+        .info-icon {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .avatar-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .current-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #1e2a3a;
+            border: 3px solid rgba(3, 233, 244, 0.5);
+            overflow: hidden;
+            margin-right: 25px;
+            box-shadow: 0 0 10px rgba(3, 233, 244, 0.2);
+        }
+
+        .current-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .avatar-options {
+            flex: 1;
+        }
+
+        .password-strength {
+            height: 5px;
+            background: #e9ecef;
+            margin-top: 8px;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .password-strength-bar {
+            height: 100%;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            width: 0%;
+        }
+
+        .strength-weak {
+            background-color: #dc3545;
+            width: 25%;
+        }
+
+        .strength-medium {
+            background-color: #ffc107;
+            width: 50%;
+        }
+
+        .strength-strong {
+            background-color: #28a745;
+            width: 100%;
+        }
+
+        .notification-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #2c3e50;
+            transition: .4s;
+            border-radius: 24px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .toggle-slider {
+            background-color: #03e9f4;
+        }
+
+        input:focus + .toggle-slider {
+            box-shadow: 0 0 1px #03e9f4;
+        }
+
+        input:checked + .toggle-slider:before {
+            transform: translateX(26px);
+        }
+
+        /* Responsives Design */
+        @media (max-width: 768px) {
+            .settings-container {
+                width: 95%;
+                padding: 15px;
+            }
+            
+            .settings-nav {
+                overflow-x: auto;
+                white-space: nowrap;
+                display: block;
+            }
+
+            .settings-nav-item {
+                display: inline-block;
+                margin-bottom: 5px;
+            }
+
+            .avatar-section {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .current-avatar {
+                margin-bottom: 15px;
+                margin-right: 0;
+            }
+
+            .btn-group {
+                flex-direction: column;
+            }
+            
+            .settings-btn {
+                width: 100%;
+            }
+        }
+
+        /* Tooltip-Design */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            margin-left: 8px;
+            cursor: help;
+        }
+
+        .tooltip-icon {
+            background: rgba(3, 233, 244, 0.2);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .tooltip-text {
+            visibility: hidden;
+            width: 250px;
+            background: rgba(0, 0, 20, 0.9);
+            color: #fff;
+            text-align: left;
+            border-radius: 6px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(3, 233, 244, 0.5);
+        }
+
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        /* Anpassung der Navigationsleiste für Konsistenz */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: rgba(0, 0, 30, 0.8);
+            position: relative;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 200, 255, 0.3);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .logo {
+            color: #03e9f4;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(3, 233, 244, 0.5);
+            letter-spacing: 2px;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(3, 233, 244, 0.2);
+        }
+        
+        .nav-links a.active {
+            background-color: rgba(3, 233, 244, 0.5);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-text">NEXON</div>
+    <div class="clock" id="clock"></div>
+    <div id="particles"></div>
+    
+    <nav class="navbar">
+        <div class="logo">NEXON</div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="chat.html">Chat</a></li>
+            <li><a href="about.html">Über uns</a></li>
+            <li><a href="contact.html">Kontakt</a></li>
+            <li><a href="settings.html" class="active">Einstellungen</a></li>
+            <li><a href="#" id="logout-link">Abmelden</a></li>
+        </ul>
+    </nav>
+    
+    <div class="settings-container">
+        <div class="settings-header">
+            <h1>Account-Einstellungen</h1>
+        </div>
+        
+        <div class="settings-nav">
+            <div class="settings-nav-item active" data-target="profile">Profil</div>
+            <div class="settings-nav-item" data-target="account">Account</div>
+            <div class="settings-nav-item" data-target="security">Sicherheit</div>
+            <div class="settings-nav-item" data-target="notifications">Benachrichtigungen</div>
+            <div class="settings-nav-item" data-target="privacy">Datenschutz</div>
+        </div>
+        
+        <!-- Profil-Einstellungen -->
+        <div class="settings-section active" id="profile">
+            <h2>Profil bearbeiten</h2>
+            
+            <div class="avatar-section">
+                <div class="current-avatar">
+                    <img src="../images/default-avatar.png" alt="Profilbild" id="current-avatar-img">
+                </div>
+                <div class="avatar-options">
+                    <h3 style="margin-bottom: 10px;">Profilbild</h3>
+                    <button class="settings-btn btn-secondary" id="upload-avatar">Profilbild hochladen</button>
+                    <input type="file" id="avatar-upload" style="display: none;" accept="image/*">
+                </div>
+            </div>
+            
+            <div class="input-row">
+                <label for="display-name">Anzeigename</label>
+                <input type="text" id="display-name" placeholder="Dein angezeigter Name" value="Benutzer123">
+            </div>
+            
+            <div class="input-row">
+                <label for="bio">Über mich</label>
+                <textarea id="bio" rows="3" placeholder="Erzähle etwas über dich..."></textarea>
+            </div>
+            
+            <div class="btn-group">
+                <button class="settings-btn btn-primary" id="save-profile">Speichern</button>
+                <button class="settings-btn btn-secondary" id="cancel-profile">Abbrechen</button>
+            </div>
+        </div>
+        
+        <!-- Account-Einstellungen -->
+        <div class="settings-section" id="account">
+            <h2>Account-Einstellungen</h2>
+            
+            <div class="input-row">
+                <label for="username">Benutzername</label>
+                <input type="text" id="username" value="benutzer123">
+            </div>
+            
+            <div class="input-row">
+                <label for="email">E-Mail-Adresse</label>
+                <input type="email" id="email" value="benutzer@beispiel.de">
+            </div>
+            
+            <div class="info-box warning">
+                <span class="info-icon">⚠️</span>
+                <span>Bei Änderung der E-Mail-Adresse wird eine Bestätigungsmail gesendet.</span>
+            </div>
+            
+            <div class="btn-group">
+                <button class="settings-btn btn-primary" id="save-account">Speichern</button>
+                <button class="settings-btn btn-secondary" id="cancel-account">Abbrechen</button>
+                <button class="settings-btn btn-danger" id="delete-account">Account löschen</button>
+            </div>
+        </div>
+        
+        <!-- Sicherheits-Einstellungen -->
+        <div class="settings-section" id="security">
+            <h2>Sicherheit</h2>
+            
+            <div class="input-row">
+                <label for="current-password">Aktuelles Passwort</label>
+                <input type="password" id="current-password" placeholder="Aktuelles Passwort eingeben">
+            </div>
+            
+            <div class="input-row">
+                <label for="new-password">
+                    Neues Passwort
+                    <span class="tooltip">
+                        <span class="tooltip-icon">?</span>
+                        <span class="tooltip-text">
+                            Das Passwort muss mindestens 8 Zeichen lang sein und mindestens einen Großbuchstaben, einen Kleinbuchstaben und eine Zahl enthalten.
+                        </span>
+                    </span>
+                </label>
+                <input type="password" id="new-password" placeholder="Neues Passwort eingeben">
+                <div class="password-strength">
+                    <div class="password-strength-bar"></div>
+                </div>
+            </div>
+            
+            <div class="input-row">
+                <label for="confirm-password">Passwort bestätigen</label>
+                <input type="password" id="confirm-password" placeholder="Neues Passwort bestätigen">
+            </div>
+            
+            <div class="input-row">
+                <label for="two-factor">Zwei-Faktor-Authentifizierung</label>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="two-factor">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            
+            <div class="btn-group">
+                <button class="settings-btn btn-primary" id="save-security">Speichern</button>
+                <button class="settings-btn btn-secondary" id="cancel-security">Abbrechen</button>
+            </div>
+        </div>
+        
+        <!-- Benachrichtigungs-Einstellungen -->
+        <div class="settings-section" id="notifications">
+            <h2>Benachrichtigungen</h2>
+            
+            <div class="notification-item">
+                <span>Chat-Benachrichtigungen</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="chat-notifications" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            
+            <div class="notification-item">
+                <span>Neue Nachricht erhalten</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="message-notifications" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            
+            <div class="notification-item">
+                <span>E-Mail-Benachrichtigungen</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="email-notifications">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            
+            <div class="notification-item">
+                <span>System-Updates</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="system-notifications">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            
+            <div class="btn-group">
+                <button class="settings-btn btn-primary" id="save-notifications">Speichern</button>
+                <button class="settings-btn btn-secondary" id="reset-notifications">Zurücksetzen</button>
+            </div>
+        </div>
+        
+        <!-- Datenschutz-Einstellungen -->
+        <div class="settings-section" id="privacy">
+            <h2>Datenschutz-Einstellungen</h2>
+            
+            <div class="notification-item">
+                <span>Profil öffentlich anzeigen</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="public-profile" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            
+            <div class="notification-item">
+                <span>Online-Status anzeigen</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="show-online-status" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            
+            <div class="notification-item">
+                <span>Lesebestätigungen senden</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="read-receipts" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            
+            <div class="notification-item">
+                <span>Datensammlung für verbesserte Dienste erlauben</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="data-collection">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            
+            <div class="btn-group">
+                <button class="settings-btn btn-primary" id="save-privacy">Speichern</button>
+                <button class="settings-btn btn-secondary" id="reset-privacy">Zurücksetzen</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/clock.js"></script>
+    <script src="../js/particles.js"></script>
+    <script src="../js/accessibility.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Tab-Navigation für die Einstellungen
+        const navItems = document.querySelectorAll('.settings-nav-item');
+        const sections = document.querySelectorAll('.settings-section');
+        
+        navItems.forEach(item => {
+            item.addEventListener('click', function() {
+                // Aktiven Navigation-Tab setzen
+                navItems.forEach(nav => nav.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Entsprechenden Bereich anzeigen
+                const target = this.getAttribute('data-target');
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                    if (section.id === target) {
+                        section.classList.add('active');
+                    }
+                });
+            });
+        });
+        
+        // Profilbild-Upload
+        const uploadBtn = document.getElementById('upload-avatar');
+        const fileInput = document.getElementById('avatar-upload');
+        const avatarImg = document.getElementById('current-avatar-img');
+        
+        uploadBtn.addEventListener('click', () => {
+            fileInput.click();
+        });
+        
+        fileInput.addEventListener('change', function() {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    avatarImg.src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+        
+        // Passwort-Stärke visualisieren
+        const newPasswordInput = document.getElementById('new-password');
+        const passwordStrengthBar = document.querySelector('.password-strength-bar');
+        
+        newPasswordInput.addEventListener('input', function() {
+            const password = this.value;
+            if (!password) {
+                passwordStrengthBar.className = 'password-strength-bar';
+                passwordStrengthBar.style.width = '0%';
+                return;
+            }
+            
+            // Einfache Passwort-Stärke-Überprüfung
+            let strength = 0;
+            if (password.length >= 8) strength += 1;
+            if (password.match(/[A-Z]/)) strength += 1;
+            if (password.match(/[a-z]/)) strength += 1;
+            if (password.match(/[0-9]/)) strength += 1;
+            if (password.match(/[^A-Za-z0-9]/)) strength += 1;
+            
+            passwordStrengthBar.className = 'password-strength-bar';
+            if (strength <= 2) {
+                passwordStrengthBar.classList.add('strength-weak');
+            } else if (strength <= 4) {
+                passwordStrengthBar.classList.add('strength-medium');
+            } else {
+                passwordStrengthBar.classList.add('strength-strong');
+            }
+        });
+        
+        // Account löschen - Bestätigungsdialog
+        const deleteAccountBtn = document.getElementById('delete-account');
+        deleteAccountBtn.addEventListener('click', function() {
+            if (confirm('Bist du sicher, dass du deinen Account löschen möchtest? Diese Aktion kann nicht rückgängig gemacht werden!')) {
+                alert('Dein Account wurde gelöscht.');
+                window.location.href = '../index.html';
+            }
+        });
+        
+        // Speichern-Buttons mit Feedback
+        const saveButtons = document.querySelectorAll('.btn-primary');
+        saveButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Hier würde normalerweise die Speicher-Logik stattfinden
+                
+                // Visuelles Feedback für den Benutzer
+                const originalText = this.textContent;
+                this.textContent = 'Gespeichert!';
+                this.disabled = true;
+                
+                setTimeout(() => {
+                    this.textContent = originalText;
+                    this.disabled = false;
+                }, 1500);
+            });
+        });
+    });
+    </script>
+</body>
+</html>

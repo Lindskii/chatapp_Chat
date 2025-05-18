@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NEXON Chat - Tauschen Sie sich in Echtzeit mit anderen Benutzern aus">
+    <meta name="keywords" content="NEXON, Chat, Messaging, Echtzeit-Chat, Kommunikation">
+    <title>NEXON Chat</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components/buttons.css">
+    <link rel="stylesheet" href="../css/components/chat.css">
+    <link rel="stylesheet" href="../css/components/accessibility.css">
+</head>
+<body>
+    <div class="background-text">NEXON</div>
+    <div class="clock" id="clock"></div>
+    <div id="particles"></div>
+    
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">NEXON</div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="chat.html" class="active">Chat</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+                <li><a href="about.html">Über uns</a></li>
+                <li><a href="settings.html">Einstellungen</a></li>
+                <li><a href="../index.html">Abmelden</a></li>
+            </ul>
+        </nav>
+        
+        <div class="chat-container">
+            <div class="chat-sidebar">
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <img src="../images/default-avatar.png" alt="Avatar" id="user-avatar">
+                    </div>
+                    <div class="user-info">
+                        <h3 id="current-username">Benutzer</h3>
+                    </div>
+                </div>
+                <div class="chat-rooms">
+                    <h3>Chatrooms</h3>
+                    <ul id="room-list">
+                        <li class="active" data-room="general">Allgemein</li>
+                        <li data-room="tech">Technologie</li>
+                        <li data-room="casual">Casual</li>
+                    </ul>
+                    <button id="new-room-btn" class="btn-small">+ Neuer Raum</button>
+                </div>
+                <div class="user-list">
+                    <h3>Online-Benutzer</h3>
+                    <ul id="online-users">
+                        <li>Benutzer (Du)</li>
+                        <li>Anna</li>
+                        <li>Max</li>
+                        <li>Julia</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="chat-main">
+                <div class="chat-header">
+                    <h2 id="current-room">Allgemein</h2>
+                    <div class="room-info">
+                        <span id="user-count">4</span> Benutzer online
+                    </div>
+                </div>
+                
+                <div class="chat-messages" id="chat-messages">
+                    <div class="system-message">Willkommen im Chat! Du bist dem Raum 'Allgemein' beigetreten.</div>
+                </div>
+                
+                <div class="chat-input">
+                    <form id="message-form">
+                        <input type="text" id="message-input" placeholder="Nachricht eingeben..." autocomplete="off">
+                        <button type="submit">Senden</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <div class="footer-links">
+                <a href="privacy.html">Datenschutz</a> |
+                <a href="terms.html">Nutzungsbedingungen</a> |
+                <a href="imprint.html">Impressum</a>
+            </div>
+            <div class="copyright">&copy; 2023 NEXON. Alle Rechte vorbehalten.</div>
+        </footer>
+    </div>
+
+    <script src="../js/clock.js"></script>
+    <script src="../js/particles.js"></script>
+    <script src="../js/chat-simple.js"></script>
+    <script src="../js/accessibility.js"></script>
+</body>
+</html>

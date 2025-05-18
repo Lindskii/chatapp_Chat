@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXON Account</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components/login.css">
+    <link rel="stylesheet" href="../css/components/buttons.css">
+    <link rel="stylesheet" href="../css/components/forms.css">
+</head>
+<body>
+    <div class="background-text">NEXON</div>
+    <div class="slogan">Your Account</div>
+    <div class="clock" id="clock"></div>
+    <div id="particles"></div>
+    
+    <div class="login-box">
+        <h1 style="color: #03e9f4; margin-bottom: 20px;">Account Übersicht</h1>
+        <div class="input-container">
+            <div class="input-group">
+                <label>Benutzername</label>
+                <input type="text" value="MaxMustermann" readonly>
+            </div>
+            <div class="input-group">
+                <label>E-Mail</label>
+                <input type="email" value="max@example.com" readonly>
+            </div>
+            <div class="input-group">
+                <label>Neues Passwort</label>
+                <input type="password">
+            </div>
+            <div class="input-group">
+                <label>Passwort bestätigen</label>
+                <input type="password">
+            </div>
+        </div>
+        <button type="submit">Speichern</button>
+        <button onclick="window.location.href='chat.html'" style="margin-top: 10px;">Zum Chat</button>
+        <p class="terms-link">
+            <a href="privacy.html">Datenschutz</a> | 
+            <a href="settings.html">Einstellungen</a> |
+            <a href="../index.html">Ausloggen</a>
+        </p>
+    </div>
+
+    <script src="../js/clock.js"></script>
+    <script src="../js/particles.js"></script>
+</body>
+</html>

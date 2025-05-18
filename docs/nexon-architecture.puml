@@ -1,0 +1,120 @@
+@startuml "NEXON System Architecture"
+!theme cerulean
+skinparam backgroundColor transparent
+skinparam handwritten false
+skinparam shadowing false
+skinparam defaultFontSize 14
+skinparam defaultFontName "Helvetica"
+
+' Titel und Header
+title NEXON Login System - Comprehensive Architecture
+header
+Erstellt von: Michael Miskovic
+Datum: Mai 2024
+endheader
+
+' Legende
+legend right
+|= Symbol |= Bedeutung |
+|<#87CEEB>| Frontend Komponenten |
+|<#98FB98>| UI Elemente |
+|<#FFA07A>| JavaScript Module |
+|<#DDA0DD>| Styling & Design |
+|===|===|
+|  ──▶  | Direkte Abhängigkeit |
+|  -----> | Datenaustausch |
+|  ....>  | Optionale Verbindung |
+|  <|--  | Erbt von |
+|  *--  | Besteht aus |
+endlegend
+
+' Hauptkomponenten
+package "Frontend Layer" #87CEEB {
+    component "Login Page" as LP
+    component "Privacy Page" as PP
+    component "Terms Page" as TP
+    component "Register Page" as RP
+}
+
+package "UI Components" #98FB98 {
+    component "Login Form" as LF {
+        port "Validation" as V
+        port "Submit" as S
+    }
+    
+    component "Interactive Elements" as IE {
+        component "Clock Widget" as CW
+        component "Particle System" as PS
+        component "Background Animation" as BA
+    }
+    
+    component "Navigation" as NAV
+}
+
+package "JavaScript Modules" #FFA07A {
+    component "clock.js" as CJS
+    component "particles.js" as PJS
+    component "validation.js" as VJS
+    
+    interface "Timer API" as TAPI
+    interface "Canvas API" as CAPI
+    interface "DOM API" as DAPI
+}
+
+package "Styling System" #DDA0DD {
+    component "Global Styles" as GS
+    component "Component Styles" as CS
+    component "Responsive Design" as RD {
+        component "Mobile" as M
+        component "Tablet" as T
+        component "Desktop" as D
+    }
+}
+
+' Beziehungen
+LP *-- LF
+LP *-- IE
+LP *-- NAV
+
+CW --> CJS
+PS --> PJS
+LF ..> VJS
+
+CJS --> TAPI
+PJS --> CAPI
+VJS --> DAPI
+
+GS --> LP
+CS --> LF
+CS --> IE
+RD --> LP
+
+M <|-- T
+T <|-- D
+
+' Notizen für wichtige Komponenten
+note right of LP
+  Haupteinstiegspunkt
+  - Verwaltet Benutzerinteraktionen
+  - Koordiniert UI-Komponenten
+  - Responsive Layout
+end note
+
+note right of LF
+  Login Formular
+  - Benutzer-Authentifizierung
+  - Input-Validierung
+  - Fehlerbehandlung
+end note
+
+note bottom of IE
+  Interaktive Elemente
+  - Verbesserte UX
+  - Performance-Optimiert
+  - Animationen
+end note
+
+' Footer
+caption Detaillierte Systemarchitektur des NEXON Login Systems mit Komponenten, Beziehungen und Abhängigkeiten
+
+@enduml

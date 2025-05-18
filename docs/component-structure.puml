@@ -1,0 +1,30 @@
+@startuml Components
+!theme cerulean
+
+package "Frontend" {
+    [index.html] as main
+    [Login Form] as form
+    [Clock Widget] as clock
+    [Particle System] as part
+    
+    database "CSS" {
+        [style.css]
+        [login.css]
+        [components/*.css]
+    }
+    
+    database "JavaScript" {
+        [clock.js]
+        [particles.js]
+        [validation.js]
+    }
+}
+
+main --> form
+main --> clock
+main --> part
+form ..> [validation.js]
+clock ..> [clock.js]
+part ..> [particles.js]
+
+@enduml

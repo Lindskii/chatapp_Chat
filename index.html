@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXON</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components/login.css">
+    <link rel="stylesheet" href="css/components/buttons.css">
+    <link rel="stylesheet" href="css/components/forms.css">
+    <link rel="stylesheet" href="css/components/accessibility.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-text">NEXON</div>
+    <div class="clock" id="clock"></div>
+    <div id="particles"></div>
+    
+    <!-- Navigationsmenü entfernt, wird erst nach Login angezeigt -->
+
+    <div class="login-box">
+        <h1 class="slogan">The Future Meets Here</h1>
+        <form id="login-form">
+            <div class="input-container">
+                <div class="input-group">
+                    <label for="username">Benutzername</label>
+                    <input type="text" id="username" name="username" autocomplete="username">
+                </div>
+            </div>
+            <div class="input-container">
+                <div class="input-group">
+                    <label for="password">Passwort</label>
+                    <input type="password" id="password" name="password" autocomplete="current-password">
+                </div>
+            </div>
+            <button type="submit" class="login-btn">Anmelden</button>
+        </form>
+        <p class="register-link">Noch kein Konto? <a href="pages/register.html">Registrieren</a></p>
+        <p class="terms-link">
+            <a href="pages/privacy.html">Datenschutz</a> | 
+            <a href="pages/terms.html">Nutzungsbedingungen</a> |
+            <a href="pages/imprint.html">Impressum</a>
+        </p>
+    </div>
+
+    <script src="js/clock.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/accessibility.js"></script>
+</body>
+</html>

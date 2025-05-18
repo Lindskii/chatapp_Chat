@@ -1,0 +1,39 @@
+@startuml Frontend
+!theme cerulean
+
+package "Frontend Components" {
+    package "UI Elements" {
+        [Login Form]
+        [Clock Widget]
+        [Particle System]
+        [Navigation Menu]
+    }
+
+    package "Styles" {
+        [Global CSS]
+        [Components CSS]
+        [Animations]
+        [Responsive Design]
+    }
+
+    package "Pages" {
+        [Login]
+        [Privacy]
+        [Terms]
+        [Imprint]
+        [Register]
+    }
+
+    package "Assets" {
+        [Images]
+        [Fonts]
+        [Icons]
+    }
+}
+
+[Login Form] --> [Global CSS]
+[Clock Widget] --> [Animations]
+[Particle System] --> [Animations]
+[Pages] --> [Components CSS]
+
+@enduml

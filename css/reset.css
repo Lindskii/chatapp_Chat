@@ -1,0 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* 
+ * CSS Reset entfernt alle Standard-Browser-Formatierungen:
+ * - margin: 0 -> entfernt alle äußeren Abstände
+ * - padding: 0 -> entfernt alle inneren Abstände
+ * - box-sizing: border-box -> Größenberechnung inkl. Rahmen und Padding
+ * sorgt für einheitliches Aussehen in allen Browsern
+ */

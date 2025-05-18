@@ -1,0 +1,35 @@
+/* Input Container Styling */
+.input-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+}
+
+/* Input Gruppe Styling */
+.input-group {
+    position: relative;
+    margin: 20px 0;
+}
+
+/* Input Feld Styling */
+.input-group input {
+    width: 100%;
+    padding: 10px 5px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-bottom: 2px solid #03e9f4;
+    outline: none;
+    background: transparent;
+}
+
+/* Label Styling */
+.input-group label {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    color: #03e9f4;
+    font-size: 14px;
+    letter-spacing: 1px;
+}

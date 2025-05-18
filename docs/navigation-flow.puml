@@ -1,0 +1,21 @@
+@startuml Navigation
+!theme cerulean
+skinparam backgroundColor transparent
+
+[*] --> SplashScreen
+SplashScreen --> LoginPage
+
+state LoginPage {
+    state "Formular" as LoginForm
+    state "Fehler" as LoginError
+    LoginForm --> LoginError : Invalid Input
+    LoginError --> LoginForm : Retry
+}
+
+LoginPage --> Dashboard : Success
+LoginPage --> PrivacyPage : "Datenschutz"
+LoginPage --> TermsPage : "AGB"
+LoginPage --> ImprintPage : "Impressum"
+LoginPage --> RegisterPage : "Registrieren"
+
+@enduml

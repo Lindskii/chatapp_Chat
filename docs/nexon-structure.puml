@@ -1,0 +1,70 @@
+@startuml NEXON Structure
+
+!theme cerulean
+skinparam componentStyle rectangle
+skinparam backgroundColor transparent
+
+package "Frontend" {
+    [index.html] as main
+    
+    package "CSS" {
+        [reset.css]
+        [style.css]
+        
+        package "components" {
+            [login.css]
+            [buttons.css]
+            [forms.css]
+        }
+    }
+    
+    package "JavaScript" {
+        [clock.js]
+        [particles.js]
+    }
+    
+    package "Pages" {
+        [register.html]
+        [privacy.html]
+        [terms.html]
+        [imprint.html]
+    }
+}
+
+' Verbindungen
+main --> [style.css]
+main --> [reset.css]
+main --> [login.css]
+main --> [buttons.css]
+main --> [forms.css]
+main --> [clock.js]
+main --> [particles.js]
+
+' Links zu anderen Seiten
+main --> [register.html] : "Registrieren Link"
+main --> [privacy.html] : "Datenschutz Link"
+main --> [terms.html] : "Nutzungsbedingungen Link"
+main --> [imprint.html] : "Impressum Link"
+
+' Komponenten Beschreibungen
+note right of main
+  Hauptseite:
+  - Login Formular
+  - Animierter Hintergrund
+  - Digitale Uhr
+  - Partikel-Effekte
+end note
+
+note right of [clock.js]
+  Digitale Uhr:
+  - Zeit-Anzeige
+  - Auto-Update
+end note
+
+note right of [particles.js]
+  Partikel System:
+  - Animation
+  - Interaktive Effekte
+end note
+
+@enduml

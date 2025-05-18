@@ -1,0 +1,402 @@
+git add /Users/miskovicmichaeka/Ueben/css/components/accessibility.css/* Accessibility Button - jetzt links positioniert */
+.a11y-btn {
+    position: fixed;
+    top: 10px;
+    left: 10px; /* Von rechts nach links verschoben */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(0, 200, 255, 0.7);
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    padding: 5px;
+}
+
+.a11y-btn:hover {
+    background-color: rgba(0, 200, 255, 0.9);
+    transform: scale(1.05);
+}
+
+/* Accessibility Menu - auch nach links verschoben */
+.a11y-menu {
+    position: fixed;
+    top: 60px;
+    left: 10px; /* Von rechts nach links verschoben */
+    background-color: rgba(30, 30, 40, 0.95);
+    border: 1px solid rgba(0, 200, 255, 0.5);
+    border-radius: 10px;
+    padding: 15px;
+    color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.a11y-menu.open {
+    display: flex;
+}
+
+.a11y-menu label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.a11y-menu input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+/* Globale Scroll-Einstellungen für alle Modi */
+html, body {
+    overflow-y: auto;
+    height: auto;
+    min-height: 100vh;
+}
+
+.content-box {
+    overflow-y: auto;
+}
+
+/* High Contrast Mode - Absolut Schwarz-Weiß überall */
+.high-contrast {
+    --background-color: #000;
+    --text-color: #fff;
+    --accent-color: #fff;
+    --link-color: #fff;
+    --button-bg: #000;
+    --button-border: #fff;
+    --input-bg: #000;
+    --input-border: #fff;
+    --container-bg: #000;
+    overflow-y: auto !important;
+}
+
+.high-contrast body {
+    overflow-y: auto !important;
+    height: auto !important;
+    min-height: 100vh !important;
+}
+
+.high-contrast .content-box {
+    overflow-y: auto !important;
+    max-height: none !important;
+}
+
+/* Grundlegende Elemente - mit stärkeren Selektoren */
+.high-contrast,
+.high-contrast body,
+.high-contrast html {
+    background: #000 !important;
+    background-color: #000 !important;
+    background-image: none !important;
+    color: #fff !important;
+}
+
+/* Komplett alles schwarz machen mit !important - keine Ausnahmen */
+.high-contrast * {
+    background-color: #000 !important;
+}
+
+/* Alle Container und Boxen */
+.high-contrast .container,
+.high-contrast .login-box,
+.high-contrast .chat-container,
+.high-contrast .about-container,
+.high-contrast .contact-container,
+.high-contrast .navbar,
+.high-contrast footer,
+.high-contrast .chat-sidebar,
+.high-contrast .chat-main,
+.high-contrast .user-profile,
+.high-contrast .chat-header,
+.high-contrast .about-section,
+.high-contrast .team-member,
+.high-contrast .contact-method,
+.high-contrast .chat-messages,
+.high-contrast .chat-input,
+.high-contrast div,
+.high-contrast section,
+.high-contrast aside,
+.high-contrast header,
+.high-contrast main {
+    background: #000 !important;
+    background-color: #000 !important;
+    border-color: #fff !important;
+    box-shadow: none !important;
+    color: #fff !important;
+    overflow: auto !important;
+    max-height: none !important;
+}
+
+/* Verstecke störende Hintergrundeffekte */
+.high-contrast .background-text,
+.high-contrast #particles,
+.high-contrast .clock {
+    position: absolute !important;
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* Links */
+.high-contrast a,
+.high-contrast a:visited,
+.high-contrast a:hover,
+.high-contrast a:active,
+.high-contrast .nav-links a,
+.high-contrast .register-link a,
+.high-contrast .terms-link a,
+.high-contrast .footer-links a {
+    color: #fff !important;
+    text-decoration: underline !important;
+}
+
+/* Buttons */
+.high-contrast button,
+.high-contrast .btn-small,
+.high-contrast .login-btn,
+.high-contrast input[type="submit"] {
+    background: #000 !important;
+    color: #fff !important;
+    border: 2px solid #fff !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+/* Eingabefelder */
+.high-contrast input,
+.high-contrast textarea,
+.high-contrast select {
+    background: #000 !important;
+    color: #fff !important;
+    border: 1px solid #fff !important;
+}
+
+/* Überschriften und Texte */
+.high-contrast h1,
+.high-contrast h2,
+.high-contrast h3,
+.high-contrast h4,
+.high-contrast h5,
+.high-contrast h6,
+.high-contrast p,
+.high-contrast span,
+.high-contrast div,
+.high-contrast label,
+.high-contrast li,
+.high-contrast td,
+.high-contrast th,
+.high-contrast blockquote,
+.high-contrast cite,
+.high-contrast code,
+.high-contrast legend,
+.high-contrast .logo,
+.high-contrast .slogan {
+    color: #fff !important;
+    text-shadow: none !important;
+}
+
+/* Kontrast-Modus für Formular-Labels */
+body.high-contrast label,
+body.high-contrast .input-group label,
+.high-contrast .login-box label,
+.high-contrast .register-container label,
+.high-contrast .contact-form label,
+.high-contrast form label,
+.high-contrast .form-group label,
+.high-contrast .label,
+.high-contrast .input-label {
+    color: #ffffff !important;
+    background: transparent !important;
+    z-index: 10 !important;
+    position: relative !important;
+    font-weight: bold !important;
+    text-shadow: 0px 0px 2px #000 !important;
+}
+
+/* Eingabefeld-Container transparent machen */
+.high-contrast .input-group,
+.high-contrast .form-group {
+    background: transparent !important;
+}
+
+/* Deutlich verbesserte Label-Sichtbarkeit im Kontrast-Modus */
+.high-contrast label,
+.high-contrast .login-box label,
+.high-contrast .register-container label,
+.high-contrast .contact-form label,
+.high-contrast form label,
+.high-contrast .form-group label,
+.high-contrast .input-group-text,
+.high-contrast .floating-label,
+.high-contrast *[for] {
+    color: #ffffff !important;
+    background-color: #000000 !important;
+    border: 1px solid #ffffff !important;
+    padding: 2px 5px !important;
+    margin-bottom: 5px !important;
+    display: block !important;
+    font-weight: bold !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: relative !important;
+    z-index: 100 !important;
+    pointer-events: auto !important;
+}
+
+/* Achte darauf, dass die Eingabefeld-Beschriftungen immer angezeigt werden */
+.high-contrast .floating-label,
+.high-contrast .form-control:focus ~ label,
+.high-contrast .form-control:not(:placeholder-shown) ~ label {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Gezielter Ansatz für Eingabefeld-Beschriftungen im Kontrast-Modus */
+.high-contrast .login-form label,
+.high-contrast .register-form label,
+.high-contrast .contact-form label,
+.high-contrast form .form-group label,
+.high-contrast label[for*="username"],
+.high-contrast label[for*="password"],
+.high-contrast label[for*="email"],
+.high-contrast label[for*="name"],
+.high-contrast label[for*="message"],
+.high-contrast label[for*="subject"] {
+    display: block !important;
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important;
+    padding: 5px 10px !important;
+    margin: 10px 0 5px 0 !important;
+    font-weight: bold !important;
+    font-size: 16px !important;
+    z-index: 9999 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    box-shadow: 0 0 5px rgba(255,255,255,0.5) !important;
+    width: auto !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 20px !important;
+    overflow: visible !important;
+    white-space: normal !important;
+    text-overflow: clip !important;
+    line-height: 1.4 !important;
+    clip: auto !important;
+    clip-path: none !important;
+}
+
+/* Beheben von versteckten oder überlagerten Labels */
+.high-contrast .form-floating > label,
+.high-contrast .floating-label,
+.high-contrast .form-control + label,
+.high-contrast label.visually-hidden {
+    position: static !important;
+    transform: none !important;
+    clip: auto !important;
+    clip-path: none !important;
+    height: auto !important;
+    width: auto !important;
+    overflow: visible !important;
+    margin: 5px 0 !important;
+    opacity: 1 !important;
+}
+
+/* Stärkerer Selector für Placeholder-Text */
+.high-contrast input::placeholder,
+.high-contrast textarea::placeholder {
+    color: #ffffff !important;
+    opacity: 0.9 !important;
+}
+
+/* Chatnachrichten */
+.high-contrast .message {
+    background: #000 !important;
+    border: 1px solid #fff !important;
+}
+
+.high-contrast .message.sent,
+.high-contrast .message.received {
+    background: #000 !important;
+    border: 1px solid #fff !important;
+}
+
+.high-contrast .system-message {
+    color: #fff !important;
+}
+
+/* Bilder in Graustufen */
+.high-contrast img {
+    filter: grayscale(100%) contrast(120%) !important;
+}
+
+/* Alle Animationen stoppen */
+.high-contrast * {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* Global überschreiben von allen Hintergrundstilen */
+@media screen {
+    .high-contrast html::before,
+    .high-contrast body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000 !important;
+        z-index: -1;
+        pointer-events: none !important; /* Erlaubt Scrolling durch das Overlay */
+    }
+}
+
+/* Big Font Mode */
+.big-font {
+    font-size: 120% !important;
+}
+
+.big-font button,
+.big-font input,
+.big-font textarea {
+    font-size: 110% !important;
+}
+
+.big-font h1 {
+    font-size: 2.4em !important;
+}
+
+.big-font h2 {
+    font-size: 2em !important;
+}
+
+.big-font h3 {
+    font-size: 1.6em !important;
+}
+
+/* Zusätzliche allgemeine Scroll-Verbesserungen */
+.content-box, 
+.chat-messages, 
+.chat-container, 
+.about-container, 
+.contact-container {
+    max-height: none;
+    overflow: auto;
+}

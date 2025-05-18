@@ -1,0 +1,50 @@
+@startuml "JavaScript Structure"
+
+!theme cerulean
+skinparam backgroundColor transparent
+skinparam classAttributeIconSize 0
+
+package "JavaScript" {
+    component "clock.js" as clock
+    component "particles.js" as particles
+
+    class ClockSystem {
+        + updateClock(): void
+        + formatTime(): string
+        + initClock(): void
+        --
+        - currentTime: Date
+        - clockElement: HTMLElement
+    }
+
+    class ParticleSystem {
+        + createParticle(): void
+        + animateParticles(): void
+        + init(): void
+        --
+        - particles: Array
+        - canvas: HTMLCanvas
+        - context: CanvasContext
+    }
+
+    clock .> ClockSystem
+    particles .> ParticleSystem
+}
+
+note right of ClockSystem
+  Digitale Uhr:
+  - Echtzeit-Updates
+  - 24-Stunden Format
+  - DOM Manipulation
+  - Event Listener
+end note
+
+note right of ParticleSystem
+  Partikel Animation:
+  - Canvas Rendering
+  - Bewegungsberechnung
+  - Kollisionserkennung
+  - Performance Optimierung
+end note
+
+@enduml

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kontaktieren Sie das NEXON Team für Fragen und Support">
+    <meta name="keywords" content="NEXON, Kontakt, Support, Chat, Messaging">
+    <title>NEXON - Kontakt</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components/buttons.css">
+    <link rel="stylesheet" href="../css/components/forms.css">
+    <link rel="stylesheet" href="../css/components/contact.css">
+    <link rel="stylesheet" href="../css/components/accessibility.css">
+</head>
+<body>
+    <div class="background-text">NEXON</div>
+    <div class="clock" id="clock"></div>
+    <div id="particles"></div>
+    
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">NEXON</div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="chat.html">Chat</a></li>
+                <li><a href="contact.html" class="active">Kontakt</a></li>
+                <li><a href="about.html">Über uns</a></li>
+                <li><a href="settings.html">Einstellungen</a></li>
+                <li><a href="#" id="logout-link">Abmelden</a></li>
+            </ul>
+        </nav>
+
+        <div class="contact-container">
+            <h1>Kontakt</h1>
+            <p class="contact-intro">Haben Sie Fragen oder Anmerkungen? Kontaktieren Sie uns!</p>
+            
+            <form id="contact-form" class="contact-form">
+                <div class="input-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="email">E-Mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="subject">Betreff</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="message">Nachricht</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit">Senden</button>
+            </form>
+            
+            <div class="contact-info">
+                <div class="contact-method">
+                    <h3>E-Mail</h3>
+                    <p>info@nexon.com</p>
+                </div>
+                
+                <div class="contact-method">
+                    <h3>Telefon</h3>
+                    <p>+49 1234 567890</p>
+                </div>
+                
+                <div class="contact-method">
+                    <h3>Adresse</h3>
+                    <p>Claudius-Keller-Straße 7<br>81669 München<br>Deutschland</p>
+                </div>
+            </div>
+        </div>
+        
+        
+        <footer>
+            <div class="footer-links">
+                <a href="privacy.html">Datenschutz</a> |
+                <a href="terms.html">Nutzungsbedingungen</a> |
+                <a href="imprint.html">Impressum</a>
+            </div>
+            <div class="copyright">&copy; 2023 NEXON. Alle Rechte vorbehalten.</div>
+        </footer>
+    </div>
+
+    <script src="../js/clock.js"></script>
+    <script src="../js/particles.js"></script>
+    <script src="../js/contact.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/accessibility.js"></script>
+</body>
+</html>

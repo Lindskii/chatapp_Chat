@@ -1,0 +1,31 @@
+@startuml Timeline
+!theme cerulean
+
+robust "System" as SYS
+robust "Benutzer" as USER
+robust "Animation" as ANIM
+
+@0
+SYS is "Initialisierung"
+ANIM is "Inaktiv"
+USER is "Warten"
+
+@2
+SYS is "Bereit"
+ANIM is "Aktiv"
+USER is "Anzeige"
+
+@4
+USER is "Eingabe"
+SYS is "Warten"
+
+@6
+USER is "Submit"
+SYS is "Validierung"
+
+@8
+SYS is "Redirect"
+USER is "Dashboard"
+ANIM is "Reset"
+
+@enduml

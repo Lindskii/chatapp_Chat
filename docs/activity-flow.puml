@@ -1,0 +1,25 @@
+@startuml Activity
+!theme cerulean
+
+start
+:Seite laden;
+
+fork
+    :Clock.js starten;
+fork again
+    :Particles.js starten;
+end fork
+
+:Login-Formular anzeigen;
+
+repeat
+    :Benutzereingaben;
+    :Validierung;
+backward:Fehlermeldung;
+repeat while (Validierung OK?) is (nein)
+->ja;
+
+:Zum Dashboard;
+
+stop
+@enduml

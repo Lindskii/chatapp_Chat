@@ -1,0 +1,30 @@
+@startuml Responsive
+!theme cerulean
+
+package "Responsive Breakpoints" {
+    class Mobile {
+        width: 320px - 480px
+        - Single column layout
+        - Stacked elements
+        - Hidden background effects
+    }
+
+    class Tablet {
+        width: 481px - 768px
+        - Two column layout
+        - Simplified animations
+        - Adaptive navigation
+    }
+
+    class Desktop {
+        width: 769px+
+        - Multi column layout
+        - Full animations
+        - Extended features
+    }
+}
+
+Mobile --|> Tablet
+Tablet --|> Desktop
+
+@enduml

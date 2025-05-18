@@ -1,0 +1,30 @@
+@startuml FormValidation
+!theme cerulean
+
+start
+:Formular anzeigen;
+
+fork
+    :Username Validierung;
+    if (Username korrekt?) then (ja)
+        :Username OK;
+    else (nein)
+        :Fehler anzeigen;
+    endif
+fork again
+    :Passwort Validierung;
+    if (Passwort korrekt?) then (ja)
+        :Passwort OK;
+    else (nein)
+        :Fehler anzeigen;
+    endif
+end fork
+
+if (Alle Validierungen OK?) then (ja)
+    :Submit erlauben;
+else (nein)
+    :Submit blockieren;
+endif
+
+stop
+@enduml

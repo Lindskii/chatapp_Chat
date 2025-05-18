@@ -1,0 +1,37 @@
+@startuml Privacy
+!theme cerulean
+
+package "Legal Pages" {
+    class PrivacyPage {
+        + header
+        + navigationBar
+        + content
+        + footer
+    }
+
+    class PrivacyContent {
+        + dataCollection
+        + dataUsage
+        + userRights
+        + cookies
+        + contact
+    }
+
+    class Terms {
+        + conditions
+        + usage
+        + liability
+    }
+
+    class Imprint {
+        + companyInfo
+        + contact
+        + legal
+    }
+}
+
+PrivacyPage *-- PrivacyContent
+PrivacyPage --> Terms
+PrivacyPage --> Imprint
+
+@enduml
